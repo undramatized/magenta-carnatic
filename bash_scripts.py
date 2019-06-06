@@ -26,12 +26,38 @@ melody_rnn_generate \
 --num_steps=128 \
 --primer_melody="[60]"
 
-# Attention RNN with midifile primer
+# Basic RNN model with primer mohanam
+melody_rnn_generate \
+--config=basic_rnn \
+--bundle_file=./pretrained_models/basic_rnn.mag \
+--output_dir=./generated/mohanam_basic_rnn/ \
+--num_outputs=3 \
+--num_steps=256 \
+--primer_midi=./raga_midi/mohanam_2.mid
 
+# Lookback RNN model with primer mohanam
+melody_rnn_generate \
+--config=lookback_rnn \
+--bundle_file=./pretrained_models/lookback_rnn.mag \
+--output_dir=./generated/mohanam_lookback_rnn/ \
+--num_outputs=3 \
+--num_steps=256 \
+--primer_midi=./raga_midi/mohanam_2.mid
+
+# Attention RNN model with primer mohanam
 melody_rnn_generate \
 --config=attention_rnn \
 --bundle_file=./pretrained_models/attention_rnn.mag \
---output_dir=./generated/mohanam_rnn/ \
+--output_dir=./generated/mohanam_attention_rnn/ \
+--num_outputs=3 \
+--num_steps=256 \
+--primer_midi=./raga_midi/mohanam_2.mid
+
+# Attention RNN with midifile primer
+melody_rnn_generate \
+--config=attention_rnn \
+--bundle_file=./pretrained_models/attention_rnn.mag \
+--output_dir=./generated/kharahara_rnn/ \
 --num_outputs=5 \
 --num_steps=128 \
---primer_midi=./raga_midi/mohanam.mid
+--primer_midi=./raga_midi/mohanam_1.mid
